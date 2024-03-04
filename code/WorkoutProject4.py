@@ -9,7 +9,7 @@ class weatherAPI:
         self.api_key = key
 
 
-    def get_curr_weather(self, city):
+    def get_daily_weather(self, city):
         url = f"{self.url}/forecast/daily"
         params = {
             "key": self.api_key,
@@ -48,11 +48,11 @@ def visualize_weather(data):
 
 def start():
     key = "53d3ac0dbfab4f74bf59d721b484fd05"
-    curr_weather = weatherAPI(key)
+    daily_weather = weatherAPI(key)
     city = "Oakland"
-    curr_weather_data = curr_weather.get_curr_weather(city)
-    write_to_json(curr_weather_data, "current weather.json")
-    visualize_weather(curr_weather_data)
+    daily_weather_data = daily_weather.get_daily_weather(city)
+    write_to_json(daily_weather_data, "current weather.json")
+    visualize_weather(daily_weather_data)
 
 
 
