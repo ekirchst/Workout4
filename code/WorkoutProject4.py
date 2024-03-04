@@ -26,6 +26,17 @@ def write_to_json(data, filename):
         js.dump(data, file)
 
 
+def visualize_weather(data):
+    plt.figure(figsize=(8, 6))
+
+    plt.xlabel('Time')
+    plt.ylabel('Temperature')
+    plt.title('Temperature over Time')
+    with PdfPages('weather_visualization.pdf') as pdf:
+        pdf.savefig()
+        plt.close()
+
+
 def start():
     key = "53d3ac0dbfab4f74bf59d721b484fd05"
     curr_weather = weatherAPI(key)
