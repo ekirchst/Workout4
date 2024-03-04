@@ -10,7 +10,7 @@ class weatherAPI:
 
 
     def get_curr_weather(self, city):
-        url = f"{self.url}/current"
+        url = f"{self.url}/forecast/daily"
         params = {
             "key": self.api_key,
             "city": city
@@ -27,11 +27,20 @@ def write_to_json(data, filename):
 
 
 def visualize_weather(data):
-    plt.figure(figsize=(8, 6))
+    dates = [entry['datetime'] for entry in data['data']]
+    high_temps = [entry['high_temp'] for entry in data['data']]
+    low_temps = [entry['low_temp'] for entry in data['data']]
 
-    plt.xlabel('Time')
-    plt.ylabel('Temperature')
-    plt.title('Temperature over Time')
+    plt.figure(figsize=(10, 6))
+    plt.plot(dates, high_temps, marker='o', linestyle='-', label='High Temp')
+    plt.plot(dates, low_temps, marker='o', linestyle='-', label='Low Temp')
+    plt.xlabel('Date')
+    plt.ylabel('Temperature (°C)')
+    plt.title('Daily High and Low Temperatures')
+    plt.xticks(rotation=45)
+    plt.legend()
+    plt.tight_layout()
+    
     with PdfPages('weather_visualization.pdf') as pdf:
         pdf.savefig()
         plt.close()
@@ -43,6 +52,7 @@ def start():
     city = "Oakland"
     curr_weather_data = curr_weather.get_curr_weather(city)
     write_to_json(curr_weather_data, "current weather.json")
+    visualize_weather(curr_weather_data)
 
 
 
