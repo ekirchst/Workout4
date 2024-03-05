@@ -16,22 +16,28 @@ class weatherAPI:
         '''
         self.url = "https://api.weatherbit.io/v2.0"
         self.api_key = key
-
-    def get_daily_weather(self, city):
-        '''
-        Function to Connect to weatherapi.io with daily weather specified
-        returns json data
-        '''
-        url = f"{self.url}/forecast/daily"
-        params = {
-            "key": self.api_key,
-            "city": city
-        }
-        full = f"{url}?{'&'.join([f'{k}={v}' for k, v in params.items()])}"
-        response = request.urlopen(full)
-        re = js.loads(response.read())
-        print(re)
-        return re
+    try:
+        def get_daily_weather(self, city):
+            '''
+            Function to Connect to weatherapi.io with daily weather specified
+            returns json data
+            '''
+            if ' ' in city:
+                print("PLEASE ENTER A CITY WITH NO SPACES")
+                quit()
+            url = f"{self.url}/forecast/daily"
+            params = {
+                "key": self.api_key,
+                "city": city
+            }
+            temp = '&'.join([f'{key}={values}' for key, values in params.items()])
+            full = f"{url}?{temp}"
+            response = request.urlopen(full)
+            re = js.loads(response.read())
+            print(re)
+            return re
+    except Exception as e:
+        print(f"Error: {e}")
 
 
 def easy_to_read(data, filename):

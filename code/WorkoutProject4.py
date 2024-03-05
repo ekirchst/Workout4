@@ -8,7 +8,7 @@ from Visualize import visualize_weather
 def start():
     key = "53d3ac0dbfab4f74bf59d721b484fd05"
     daily_weather = weatherAPI(key)
-    city = "NewYork"
+    city = "Oakland"
     daily_weather_data = daily_weather.get_daily_weather(city)
     easy_to_read(daily_weather_data, "daily weather.json")
     visualize_weather(daily_weather_data)
