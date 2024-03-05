@@ -6,6 +6,10 @@ from Visualize import visualize_weather
 
 
 def start():
+    '''
+    Start Function
+    Assigns values to variables, Creates WeatherAPI object, and calls functions
+    '''
     key = "53d3ac0dbfab4f74bf59d721b484fd05"
     daily_weather = weatherAPI(key)
     city = "Oakland"
@@ -15,4 +19,7 @@ def start():
 
 
 if __name__ == "__main__":
+    '''
+    Function to start code when file is run
+    '''
     start()
