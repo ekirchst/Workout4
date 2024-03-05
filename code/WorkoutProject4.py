@@ -1,7 +1,7 @@
 # Evan Kirchstetter
 # ekirchst@uci.edu
 # 59946460
-from API import easy_to_read, weatherAPI
+import API as api
 from Visualize import visualize_weather
 
 
@@ -11,10 +11,10 @@ def start():
     Assigns values to variables, Creates WeatherAPI object, and calls functions
     '''
     key = "53d3ac0dbfab4f74bf59d721b484fd05"
-    daily_weather = weatherAPI(key)
-    city = "Oakland"
+    daily_weather = api.weatherAPI(key)
+    city = input("Enter City (with no spaces)")
     daily_weather_data = daily_weather.get_daily_weather(city)
-    easy_to_read(daily_weather_data, "daily weather.json")
+    api.easy_to_read(daily_weather_data, "daily weather read file.json")
     visualize_weather(daily_weather_data)
 
 

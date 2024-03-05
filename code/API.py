@@ -3,6 +3,7 @@
 # 59946460
 import json as js
 from urllib import request
+from WorkoutProject4 import start
 
 
 class weatherAPI:
@@ -24,13 +25,13 @@ class weatherAPI:
             '''
             if ' ' in city:
                 print("PLEASE ENTER A CITY WITH NO SPACES")
-                quit()
+                start()
             url = f"{self.url}/forecast/daily"
             params = {
                 "key": self.api_key,
                 "city": city
             }
-            temp = '&'.join([f'{key}={values}' for key, values in params.items()])
+            temp = '&'.join([f'{key}={val}' for key, val in params.items()])
             full = f"{url}?{temp}"
             response = request.urlopen(full)
             re = js.loads(response.read())
