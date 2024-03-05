@@ -2,7 +2,6 @@ import json as js
 from urllib import request
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_pdf import PdfPages
-import webbrowser
 
 
 class weatherAPI:
@@ -41,10 +40,9 @@ def visualize_weather(data):
     plt.xticks(rotation=45)
     plt.legend()
     plt.tight_layout()
-    with PdfPages('weather_visualization.pdf') as pdf:
+    with PdfPages('WorkoutProject4-59946460.pdf') as pdf:
         pdf.savefig()
         plt.close()
-    webbrowser.open('weather_visualization.pdf')
 
 
 def start():
