@@ -2,7 +2,6 @@
 # ekirchst@uci.edu
 # 59946460
 import matplotlib.pyplot as plt
-from matplotlib.backends.backend_pdf import PdfPages
 
 
 def visualize_weather(data):
@@ -22,6 +21,4 @@ def visualize_weather(data):
     plt.xticks(rotation=45)
     plt.legend()
     plt.tight_layout()
-    with PdfPages('WorkoutProject4-59946460.pdf') as pdf:
-        pdf.savefig()
-        plt.close()
+    plt.savefig('WorkoutProject4-59946460.jpg')
