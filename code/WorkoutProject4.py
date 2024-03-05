@@ -1,7 +1,7 @@
 # Evan Kirchstetter
 # ekirchst@uci.edu
 # 59946460
-from API import write_to_json, weatherAPI
+from API import easy_to_read, weatherAPI
 from Visualize import visualize_weather
 
 
@@ -10,7 +10,7 @@ def start():
     daily_weather = weatherAPI(key)
     city = "NewYork"
     daily_weather_data = daily_weather.get_daily_weather(city)
-    write_to_json(daily_weather_data, "current weather.json")
+    easy_to_read(daily_weather_data, "daily weather.json")
     visualize_weather(daily_weather_data)
 
 

@@ -34,7 +34,7 @@ class weatherAPI:
         return re
 
 
-def write_to_json(data, filename):
+def easy_to_read(data, filename):
     '''
     Creates json File with Output Data From Weather api
     Incredibly Easy to Read
