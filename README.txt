@@ -5,8 +5,8 @@ This is a simple program to access the weatherbitAPI. The program will output a 
 
 
 *USE*
-To use this program, change the "city" vaiable in the WorkoutProject4.py module to any city. *** IMPORTANT, Do not entera city with a space in it. For a city like New York, enter it as "NewYork". ***
-
+To use this program, run the WorkoutProject4.py file and follow the instructions displayed in the terminal. You need to provide the name of a city. Data will be pulled from the weatherbit api and printed in the terminal.
+Furthermore, a jpg file will be created in the same directory displaying the daily low and high temperatures for the next two weeks.
 
 contributors: Evan Kirchstetter
               ekirchst@uci.edu

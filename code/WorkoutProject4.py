@@ -12,10 +12,12 @@ def start():
     '''
     key = "53d3ac0dbfab4f74bf59d721b484fd05"
     daily_weather = api.weatherAPI(key)
-    city = input("Enter City (with no spaces)")
+    city = input("Enter City: ")
+    city = city
     daily_weather_data = daily_weather.get_daily_weather(city)
     api.easy_to_read(daily_weather_data, "daily weather read file.json")
     visualize_weather(daily_weather_data)
+    print("Your data has been retrieved and a jpg file has been created displaying it.")
 
 
 if __name__ == "__main__":

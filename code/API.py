@@ -4,6 +4,7 @@
 import json as js
 from urllib import request
 from WorkoutProject4 import start
+from urllib.parse import quote
 
 
 class weatherAPI:
@@ -23,13 +24,12 @@ class weatherAPI:
             Function to Connect to weatherapi.io with daily weather specified
             returns json data
             '''
-            if ' ' in city:
-                print("PLEASE ENTER A CITY WITH NO SPACES")
-                start()
+            no_space_city = quote(city)
+            print(no_space_city)
             url = f"{self.url}/forecast/daily"
             params = {
                 "key": self.api_key,
-                "city": city
+                "city": no_space_city
             }
             temp = '&'.join([f'{key}={val}' for key, val in params.items()])
             full = f"{url}?{temp}"
